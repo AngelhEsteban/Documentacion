@@ -12,7 +12,7 @@ export class CreatePurchaseDto {
   status: PurchaseStatus;
 
   @ApiProperty({
-    description: 'ID del cliente',
+    description: 'ID del cliente que realizo la compra',
     type: String,
     example: 'c056d4f5-24e3-4e27-bc68-9ff6da7d284f',
   })
@@ -21,7 +21,7 @@ export class CreatePurchaseDto {
   customer: string;
 
   @ApiProperty({
-    description: 'ID del método de pago',
+    description: 'ID del método de pago de la compra',
     type: String,
     example: 'f9b88e1d-4e4d-44bb-8e55-5fb103b42d62',
   })

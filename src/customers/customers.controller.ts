@@ -23,35 +23,36 @@ export class CustomersController {
   @Post()
   @ApiOperation({ summary: 'Crear un nuevo cliente' })
   @ApiBody({ type: CreateCustomerDto, description: 'Datos del cliente a crear' })
-  @ApiResponse({ status: 201, description: 'Cliente creado exitosamente.' })
+  @ApiResponse({ status: 201, description: 'Cliente creado de forma exitosa.' })
   @ApiResponse({ status: 400, description: 'Solicitud inválida.' })
   create(@Body() createCustomerDto: CreateCustomerDto) {
     return this.customersService.create(createCustomerDto);
   }
 
   @Get()
-  @ApiOperation({ summary: 'Obtener todos los clientes' })
-  @ApiQuery({ type: PaginationDto, description: 'Parámetros de paginación' })
-  @ApiResponse({ status: 200, description: 'Clientes obtenidos exitosamente.' })
+  @ApiOperation({ summary: 'llammar todos los clientes' })
+  @ApiQuery({ type: PaginationDto, description: 'Parámetros pertenecientes a la paginación' })
+  @ApiResponse({ status: 200, description: 'Clientes llamados de forma exitosa.' })
   @ApiResponse({ status: 400, description: 'Solicitud inválida.' })
   findAll(@Query() paginationDto: PaginationDto) {
     return this.customersService.findAll(paginationDto);
   }
 
   @Get(':id')
-  @ApiOperation({ summary: 'Obtener un cliente por ID' })
+  @ApiOperation({ summary: 'llamar un cliente por su ID' })
   @ApiParam({ name: 'id', description: 'ID del cliente' })
-  @ApiResponse({ status: 200, description: 'Cliente obtenido exitosamente.' })
+  @ApiResponse({ status: 200, description: 'Cliente llamado de forma exitosa.' })
   @ApiResponse({ status: 404, description: 'Cliente no encontrado.' })
   findOne(@Param('id', ParseUUIDPipe) id: string) {
     return this.customersService.findOne(id);
   }
 
   @Patch(':id')
-  @ApiOperation({ summary: 'Actualizar un cliente por ID' })
-  @ApiParam({ name: 'id', description: 'ID del cliente' })
+  @ApiOperation({ summary: 'Actualizar un cliente por su ID' })
+  @ApiParam({ name: 'id', description: 'ID perteneciente al cliente' })
   @ApiBody({ type: UpdateCustomerDto, description: 'Datos del cliente a actualizar' })
-  @ApiResponse({ status: 200, description: 'Cliente actualizado exitosamente.' })
+  @ApiResponse({ status: 200, description: 'Cliente actualizado de forma exitosa.' })
+  @ApiResponse({ status: 400, description: 'Solicitud inválida.' })
   @ApiResponse({ status: 404, description: 'Cliente no encontrado.' })
   update(
     @Param('id', ParseUUIDPipe) id: string,
@@ -61,9 +62,9 @@ export class CustomersController {
   }
 
   @Delete(':id')
-  @ApiOperation({ summary: 'Eliminar un cliente por ID' })
-  @ApiParam({ name: 'id', description: 'ID del cliente' })
-  @ApiResponse({ status: 200, description: 'Cliente eliminado exitosamente.' })
+  @ApiOperation({ summary: 'Eliminar un cliente por su ID' })
+  @ApiParam({ name: 'id', description: 'ID perteneceinte al cliente' })
+  @ApiResponse({ status: 200, description: 'Cliente eliminado de forma exitosa.' })
   @ApiResponse({ status: 404, description: 'Cliente no encontrado.' })
   remove(@Param('id', ParseUUIDPipe) id: string) {
     return this.customersService.remove(id);

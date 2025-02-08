@@ -22,36 +22,36 @@ export class DiscountsController {
 
   @Post()
   @ApiOperation({ summary: 'Crear un nuevo descuento' })
-  @ApiBody({ type: CreateDiscountDto, description: 'Datos del descuento a crear' })
-  @ApiResponse({ status: 201, description: 'Descuento creado exitosamente.' })
+  @ApiBody({ type: CreateDiscountDto, description: 'Datos pertenecientes al descuento a crear' })
+  @ApiResponse({ status: 201, description: 'Descuento creado de forma exitosa.' })
   @ApiResponse({ status: 400, description: 'Solicitud inválida.' })
   create(@Body() createDiscountDto: CreateDiscountDto) {
     return this.discountsService.create(createDiscountDto);
   }
 
   @Get()
-  @ApiOperation({ summary: 'Obtener todos los descuentos' })
-  @ApiQuery({ type: PaginationDto, description: 'Parámetros de paginación' })
-  @ApiResponse({ status: 200, description: 'Descuentos obtenidos exitosamente.' })
+  @ApiOperation({ summary: 'Llamar todos los descuentos' })
+  @ApiQuery({ type: PaginationDto, description: 'Parámetros pertenecientes a la paginación' })
+  @ApiResponse({ status: 200, description: 'Descuentos llamados de forma exitosa.' })
   @ApiResponse({ status: 400, description: 'Solicitud inválida.' })
   findAll(@Query() paginationDto: PaginationDto) {
     return this.discountsService.findAll(paginationDto);
   }
 
   @Get(':id')
-  @ApiOperation({ summary: 'Obtener un descuento por ID' })
+  @ApiOperation({ summary: 'Llamar un descuento por su ID' })
   @ApiParam({ name: 'id', description: 'ID del descuento' })
-  @ApiResponse({ status: 200, description: 'Descuento obtenido exitosamente.' })
+  @ApiResponse({ status: 200, description: 'Descuento obtenido de forma exitosa.' })
   @ApiResponse({ status: 404, description: 'Descuento no encontrado.' })
   findOne(@Param('id', ParseUUIDPipe) id: string) {
     return this.discountsService.findOne(id);
   }
 
   @Patch(':id')
-  @ApiOperation({ summary: 'Actualizar un descuento por ID' })
+  @ApiOperation({ summary: 'Actualizar un descuento por su ID' })
   @ApiParam({ name: 'id', description: 'ID del descuento' })
   @ApiBody({ type: UpdateDiscountDto, description: 'Datos del descuento a actualizar' })
-  @ApiResponse({ status: 200, description: 'Descuento actualizado exitosamente.' })
+  @ApiResponse({ status: 200, description: 'Descuento actualizado de forma exitosa.' })
   @ApiResponse({ status: 404, description: 'Descuento no encontrado.' })
   update(
     @Param('id', ParseUUIDPipe) id: string,
@@ -61,9 +61,9 @@ export class DiscountsController {
   }
 
   @Delete(':id')
-  @ApiOperation({ summary: 'Eliminar un descuento por ID' })
+  @ApiOperation({ summary: 'Eliminar un descuento por su ID' })
   @ApiParam({ name: 'id', description: 'ID del descuento' })
-  @ApiResponse({ status: 200, description: 'Descuento eliminado exitosamente.' })
+  @ApiResponse({ status: 200, description: 'Descuento eliminado de forma exitosa.' })
   @ApiResponse({ status: 404, description: 'Descuento no encontrado.' })
   remove(@Param('id', ParseUUIDPipe) id: string) {
     return this.discountsService.remove(id);

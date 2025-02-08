@@ -17,7 +17,7 @@ export class CreateCustomerDto {
   @IsNotEmpty()
   address: string;
 
-  @ApiProperty({ description: 'Ciudad del cliente' })
+  @ApiProperty({ description: 'Ciudad de recidencia del cliente' })
   @IsString()
   @IsNotEmpty()
   city: string;
@@ -27,7 +27,7 @@ export class CreateCustomerDto {
   @IsOptional()
   postalCode?: number;
 
-  @ApiProperty({ description: 'País del cliente' })
+  @ApiProperty({ description: 'País de recidencia del cliente' })
   @IsString()
   @IsNotEmpty()
   country: string;

@@ -32,7 +32,7 @@ export class CreateUserDto {
   email: string;
 
   @ApiProperty({
-    description: 'Contraseña del usuario',
+    description: 'Llave del usuario',
     type: String,
     example: 'ContraseñaSegura123!',
   })

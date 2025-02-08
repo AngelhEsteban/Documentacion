@@ -14,8 +14,8 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @Post('register')
-  @ApiOperation({ summary: 'Registrar un nuevo usuario' })
-  @ApiBody({ type: CreateAuthDto, description: 'Datos del usuario para el registro' })
+  @ApiOperation({ summary: 'Registro de un nuevo usuario' })
+  @ApiBody({ type: CreateAuthDto, description: 'Datos del usuario a registrar' })
   @ApiResponse({ status: 201, description: 'Usuario registrado exitosamente.' })
   @ApiResponse({ status: 400, description: 'Solicitud inválida.' })
   register(@Body() createAuthDto: CreateAuthDto) {
@@ -24,9 +24,9 @@ export class AuthController {
 
   @Post('login')
   @ApiOperation({ summary: 'Iniciar sesión' })
-  @ApiBody({ type: LoginAuthDto, description: 'Credenciales del usuario para el inicio de sesión' })
+  @ApiBody({ type: LoginAuthDto, description: 'Datos del usuario para el inicio de sesión' })
   @ApiResponse({ status: 200, description: 'Inicio de sesión exitoso.' })
-  @ApiResponse({ status: 401, description: 'Credenciales inválidas.' })
+  @ApiResponse({ status: 401, description: 'Datos inválidos.' })
   login(@Body() loginAuthDto: LoginAuthDto) {
     return this.authService.login(loginAuthDto);
   }

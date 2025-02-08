@@ -22,32 +22,32 @@ export class StocksController {
 
   @Post()
   @ApiOperation({ summary: 'Crear un nuevo stock' })
-  @ApiResponse({ status: 201, description: 'Stock creado exitosamente.' })
+  @ApiResponse({ status: 201, description: 'Stock creado de forma exitosa.' })
   @ApiResponse({ status: 400, description: 'Solicitud incorrecta.' })
   create(@Body() createStockDto: CreateStockDto) {
     return this.stocksService.create(createStockDto);
   }
 
   @Get()
-  @ApiOperation({ summary: 'Obtener todos los stocks' })
-  @ApiResponse({ status: 200, description: 'Lista de stocks recuperada exitosamente.' })
+  @ApiOperation({ summary: 'Llamar todos los stocks' })
+  @ApiResponse({ status: 200, description: 'Lista de stocks llamada de forma exitosa.' })
   findAll(@Query() paginationDto: PaginationDto) {
     return this.stocksService.findAll(paginationDto);
   }
 
   @Get(':id')
-  @ApiOperation({ summary: 'Obtener un stock por ID' })
+  @ApiOperation({ summary: 'Llamar un stock por su ID' })
   @ApiParam({ name: 'id', type: 'string', description: 'ID del stock' })
-  @ApiResponse({ status: 200, description: 'Stock recuperado exitosamente.' })
+  @ApiResponse({ status: 200, description: 'Stock llamado de forma exitosa.' })
   @ApiResponse({ status: 404, description: 'Stock no encontrado.' })
   findOne(@Param('id', ParseUUIDPipe) id: string) {
     return this.stocksService.findOne(id);
   }
 
   @Patch(':id')
-  @ApiOperation({ summary: 'Actualizar un stock por ID' })
+  @ApiOperation({ summary: 'Actualizar un stock por su ID' })
   @ApiParam({ name: 'id', type: 'string', description: 'ID del stock' })
-  @ApiResponse({ status: 200, description: 'Stock actualizado exitosamente.' })
+  @ApiResponse({ status: 200, description: 'Stock actualizado de forma exitosa.' })
   @ApiResponse({ status: 404, description: 'Stock no encontrado.' })
   update(
     @Param('id', ParseUUIDPipe) id: string,
@@ -57,9 +57,9 @@ export class StocksController {
   }
 
   @Delete(':id')
-  @ApiOperation({ summary: 'Eliminar un stock por ID' })
+  @ApiOperation({ summary: 'Eliminar un stock por su ID' })
   @ApiParam({ name: 'id', type: 'string', description: 'ID del stock' })
-  @ApiResponse({ status: 200, description: 'Stock eliminado exitosamente.' })
+  @ApiResponse({ status: 200, description: 'Stock eliminado de forma exitosa.' })
   @ApiResponse({ status: 404, description: 'Stock no encontrado.' })
   remove(@Param('id', ParseUUIDPipe) id: string) {
     return this.stocksService.remove(id);

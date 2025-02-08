@@ -21,33 +21,33 @@ export class OrderDetailsController {
   constructor(private readonly orderDetailsService: OrderDetailsService) {}
 
   @Post()
-  @ApiOperation({ summary: 'Crear un nuevo detalle de orden' })
-  @ApiResponse({ status: 201, description: 'Detalle de orden creado exitosamente.' })
+  @ApiOperation({ summary: 'Crear un nuevo detalle para una orden' })
+  @ApiResponse({ status: 201, description: 'Detalle de la orden creado de forma exitosa.' })
   @ApiResponse({ status: 400, description: 'Solicitud incorrecta.' })
   create(@Body() createOrderDetailDto: CreateOrderDetailDto) {
     return this.orderDetailsService.create(createOrderDetailDto);
   }
 
   @Get()
-  @ApiOperation({ summary: 'Obtener todos los detalles de las órdenes' })
-  @ApiResponse({ status: 200, description: 'Lista de detalles de órdenes recuperada exitosamente.' })
+  @ApiOperation({ summary: 'Llamar todos los detalles de las órdenes' })
+  @ApiResponse({ status: 200, description: 'Lista de los detalles de las órdenes recuperada de forma exitosa.' })
   findAll(@Query() paginationDto: PaginationDto) {
     return this.orderDetailsService.findAll(paginationDto);
   }
 
   @Get(':id')
-  @ApiOperation({ summary: 'Obtener un detalle de orden por ID' })
+  @ApiOperation({ summary: 'Llamar un detalle de una orden por ID' })
   @ApiParam({ name: 'id', type: 'string', description: 'ID del detalle de orden' })
-  @ApiResponse({ status: 200, description: 'Detalle de orden recuperado exitosamente.' })
+  @ApiResponse({ status: 200, description: 'Detalle de orden recuperado de forma exitosa.' })
   @ApiResponse({ status: 404, description: 'Detalle de orden no encontrado.' })
   findOne(@Param('id', ParseUUIDPipe) id: string) {
     return this.orderDetailsService.findOne(id);
   }
 
   @Patch(':id')
-  @ApiOperation({ summary: 'Actualizar un detalle de orden por ID' })
+  @ApiOperation({ summary: 'Actualizar un detalle de una orden por ID' })
   @ApiParam({ name: 'id', type: 'string', description: 'ID del detalle de orden' })
-  @ApiResponse({ status: 200, description: 'Detalle de orden actualizado exitosamente.' })
+  @ApiResponse({ status: 200, description: 'Detalle de orden actualizado de forma exitosa.' })
   @ApiResponse({ status: 404, description: 'Detalle de orden no encontrado.' })
   update(
     @Param('id', ParseUUIDPipe) id: string,
@@ -57,9 +57,9 @@ export class OrderDetailsController {
   }
 
   @Delete(':id')
-  @ApiOperation({ summary: 'Eliminar un detalle de orden por ID' })
+  @ApiOperation({ summary: 'Eliminar un detalle de una orden por ID' })
   @ApiParam({ name: 'id', type: 'string', description: 'ID del detalle de orden' })
-  @ApiResponse({ status: 200, description: 'Detalle de orden eliminado exitosamente.' })
+  @ApiResponse({ status: 200, description: 'Detalle de orden eliminado de forma exitosa.' })
   @ApiResponse({ status: 404, description: 'Detalle de orden no encontrado.' })
   remove(@Param('id', ParseUUIDPipe) id: string) {
     return this.orderDetailsService.remove(id);

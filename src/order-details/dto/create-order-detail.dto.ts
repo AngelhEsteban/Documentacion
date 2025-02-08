@@ -3,7 +3,7 @@ import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateOrderDetailDto {
   @ApiProperty({
-    description: 'Cantidad de productos en el pedido',
+    description: 'Cantidad de productos solicitados en el pedido',
     type: Number,
     example: 5,
     required: false,

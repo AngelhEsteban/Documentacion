@@ -22,32 +22,32 @@ export class PurchasesController {
 
   @Post()
   @ApiOperation({ summary: 'Crear una nueva compra' })
-  @ApiResponse({ status: 201, description: 'Compra creada exitosamente.' })
+  @ApiResponse({ status: 201, description: 'Compra creada de forma exitosa.' })
   @ApiResponse({ status: 400, description: 'Solicitud incorrecta.' })
   create(@Body() createPurchaseDto: CreatePurchaseDto) {
     return this.purchasesService.create(createPurchaseDto);
   }
 
   @Get()
-  @ApiOperation({ summary: 'Obtener todas las compras' })
-  @ApiResponse({ status: 200, description: 'Lista de compras recuperada exitosamente.' })
+  @ApiOperation({ summary: 'Llamar todas las compras' })
+  @ApiResponse({ status: 200, description: 'Lista de compras llamada de forma exitosa.' })
   findAll(@Query() paginationDto: PaginationDto) {
     return this.purchasesService.findAll(paginationDto);
   }
 
   @Get(':id')
-  @ApiOperation({ summary: 'Obtener una compra por ID' })
+  @ApiOperation({ summary: 'Llamar una compra por su ID' })
   @ApiParam({ name: 'id', type: 'string', description: 'ID de la compra' })
-  @ApiResponse({ status: 200, description: 'Compra recuperada exitosamente.' })
+  @ApiResponse({ status: 200, description: 'Compra llamada de forma exitosa.' })
   @ApiResponse({ status: 404, description: 'Compra no encontrada.' })
   findOne(@Param('id', ParseUUIDPipe) id: string) {
     return this.purchasesService.findOne(id);
   }
 
   @Patch(':id')
-  @ApiOperation({ summary: 'Actualizar una compra por ID' })
+  @ApiOperation({ summary: 'Actualizar una compra por su ID' })
   @ApiParam({ name: 'id', type: 'string', description: 'ID de la compra' })
-  @ApiResponse({ status: 200, description: 'Compra actualizada exitosamente.' })
+  @ApiResponse({ status: 200, description: 'Compra actualizada de forma exitosa.' })
   @ApiResponse({ status: 404, description: 'Compra no encontrada.' })
   update(
     @Param('id', ParseUUIDPipe) id: string,
@@ -57,9 +57,9 @@ export class PurchasesController {
   }
 
   @Delete(':id')
-  @ApiOperation({ summary: 'Eliminar una compra por ID' })
+  @ApiOperation({ summary: 'Eliminar una compra por su ID' })
   @ApiParam({ name: 'id', type: 'string', description: 'ID de la compra' })
-  @ApiResponse({ status: 200, description: 'Compra eliminada exitosamente.' })
+  @ApiResponse({ status: 200, description: 'Compra eliminada de forma exitosa.' })
   @ApiResponse({ status: 404, description: 'Compra no encontrada.' })
   remove(@Param('id', ParseUUIDPipe) id: string) {
     return this.purchasesService.remove(id);

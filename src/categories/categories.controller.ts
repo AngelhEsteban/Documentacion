@@ -28,7 +28,7 @@ export class CategoriesController {
 
   @Post()
   @ApiOperation({ summary: 'Crear una nueva categoría' })
-  @ApiBody({ type: CreateCategoryDto, description: 'Datos de la categoría a crear' })
+  @ApiBody({ type: CreateCategoryDto, description: 'Datos de la nueva categoría' })
   @ApiResponse({ status: 201, description: 'Categoría creada exitosamente.' })
   @ApiResponse({ status: 400, description: 'Solicitud inválida.' })
   @AdminAccess()
@@ -37,9 +37,9 @@ export class CategoriesController {
   }
 
   @Get()
-  @ApiOperation({ summary: 'Obtener todas las categorías' })
-  @ApiQuery({ type: PaginationDto, description: 'Parámetros de paginación' })
-  @ApiResponse({ status: 200, description: 'Categorías obtenidas exitosamente.' })
+  @ApiOperation({ summary: 'llamar todas las categorías existentes' })
+  @ApiQuery({ type: PaginationDto, description: 'Parámetros pertenecientes a la paginación' })
+  @ApiResponse({ status: 200, description: 'Categorías llamadas exitosamente.' })
   @ApiResponse({ status: 400, description: 'Solicitud inválida.' })
   @PublicAccess()
   findAll(@Query() paginationDto: PaginationDto) {
@@ -47,9 +47,9 @@ export class CategoriesController {
   }
 
   @Get(':id')
-  @ApiOperation({ summary: 'Obtener una categoría por ID' })
+  @ApiOperation({ summary: 'LLamar una categoría por su ID' })
   @ApiParam({ name: 'id', description: 'ID de la categoría' })
-  @ApiResponse({ status: 200, description: 'Categoría obtenida exitosamente.' })
+  @ApiResponse({ status: 200, description: 'Categoría llamada exitosamente.' })
   @ApiResponse({ status: 404, description: 'Categoría no encontrada.' })
   @PublicAccess()
   findOne(@Param('id', ParseUUIDPipe) id: string) {
@@ -57,10 +57,10 @@ export class CategoriesController {
   }
 
   @Patch(':id')
-  @ApiOperation({ summary: 'Actualizar una categoría por ID' })
-  @ApiParam({ name: 'id', description: 'ID de la categoría' })
+  @ApiOperation({ summary: 'Actualizar una categoría por su ID' })
+  @ApiParam({ name: 'id', description: 'ID perteneciente a la categoría' })
   @ApiBody({ type: UpdateCategoryDto, description: 'Datos de la categoría a actualizar' })
-  @ApiResponse({ status: 200, description: 'Categoría actualizada exitosamente.' })
+  @ApiResponse({ status: 200, description: 'Categoría actualizada de forma exitosa.' })
   @ApiResponse({ status: 400, description: 'Solicitud inválida.' })
   @ApiResponse({ status: 404, description: 'Categoría no encontrada.' })
   @AdminAccess()
@@ -72,9 +72,9 @@ export class CategoriesController {
   }
 
   @Delete(':id')
-  @ApiOperation({ summary: 'Eliminar una categoría por ID' })
-  @ApiParam({ name: 'id', description: 'ID de la categoría' })
-  @ApiResponse({ status: 200, description: 'Categoría eliminada exitosamente.' })
+  @ApiOperation({ summary: 'Eliminar una categoría por su ID' })
+  @ApiParam({ name: 'id', description: 'ID perteneciente a la categoría' })
+  @ApiResponse({ status: 200, description: 'Categoría eliminada de forma exitosa.' })
   @ApiResponse({ status: 404, description: 'Categoría no encontrada.' })
   @AdminAccess()
   remove(@Param('id', ParseUUIDPipe) id: string) {

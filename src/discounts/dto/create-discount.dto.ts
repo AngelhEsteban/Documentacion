@@ -13,17 +13,17 @@ export class CreateDiscountDto {
   @IsNotEmpty()
   name: string;
 
-  @ApiProperty({ description: 'Descripción del descuento', required: false })
+  @ApiProperty({ description: 'Descripción perteneciente al descuento', required: false })
   @IsString()
   @IsOptional()
   description?: string;
 
-  @ApiProperty({ description: 'Porcentaje de descuento' })
+  @ApiProperty({ description: 'Porcentaje perteneciente al descuento' })
   @IsNumber()
   @IsNotEmpty()
   percentage: number;
 
-  @ApiProperty({ description: 'Monto del descuento' })
+  @ApiProperty({ description: 'Monto perteneciente al descuento' })
   @IsNumber()
   @IsNotEmpty()
   amount: number;

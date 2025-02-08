@@ -44,7 +44,7 @@ export class CreateProductDto {
   price?: number = 0;
 
   @ApiProperty({
-    description: 'Unidad del producto',
+    description: 'Unidades del producto',
     type: Number,
     minimum: 0,
     example: 10,

@@ -22,32 +22,32 @@ export class WarehousesController {
 
   @Post()
   @ApiOperation({ summary: 'Crear un nuevo almacén' })
-  @ApiResponse({ status: 201, description: 'Almacén creado exitosamente.' })
+  @ApiResponse({ status: 201, description: 'Almacén creado de forma exitosa.' })
   @ApiResponse({ status: 400, description: 'Solicitud incorrecta.' })
   create(@Body() createWarehouseDto: CreateWarehouseDto) {
     return this.warehousesService.create(createWarehouseDto);
   }
 
   @Get()
-  @ApiOperation({ summary: 'Obtener todos los almacenes' })
-  @ApiResponse({ status: 200, description: 'Lista de almacenes recuperada exitosamente.' })
+  @ApiOperation({ summary: 'Llamar todos los almacenes' })
+  @ApiResponse({ status: 200, description: 'Lista de almacenes llamada de forma exitosa.' })
   findAll(@Query() paginationDto: PaginationDto) {
     return this.warehousesService.findAll(paginationDto);
   }
 
   @Get(':id')
-  @ApiOperation({ summary: 'Obtener un almacén por ID' })
+  @ApiOperation({ summary: 'Llamar un almacén por su ID' })
   @ApiParam({ name: 'id', type: 'string', description: 'ID del almacén' })
-  @ApiResponse({ status: 200, description: 'Almacén recuperado exitosamente.' })
+  @ApiResponse({ status: 200, description: 'Almacén llamado de forma exitosa.' })
   @ApiResponse({ status: 404, description: 'Almacén no encontrado.' })
   findOne(@Param('id', ParseUUIDPipe) id: string) {
     return this.warehousesService.findOne(id);
   }
 
   @Patch(':id')
-  @ApiOperation({ summary: 'Actualizar un almacén por ID' })
+  @ApiOperation({ summary: 'Actualizar un almacén por su ID' })
   @ApiParam({ name: 'id', type: 'string', description: 'ID del almacén' })
-  @ApiResponse({ status: 200, description: 'Almacén actualizado exitosamente.' })
+  @ApiResponse({ status: 200, description: 'Almacén actualizado de forma exitosa.' })
   @ApiResponse({ status: 404, description: 'Almacén no encontrado.' })
   update(
     @Param('id', ParseUUIDPipe) id: string,
@@ -57,9 +57,9 @@ export class WarehousesController {
   }
 
   @Delete(':id')
-  @ApiOperation({ summary: 'Eliminar un almacén por ID' })
+  @ApiOperation({ summary: 'Eliminar un almacén por su ID' })
   @ApiParam({ name: 'id', type: 'string', description: 'ID del almacén' })
-  @ApiResponse({ status: 200, description: 'Almacén eliminado exitosamente.' })
+  @ApiResponse({ status: 200, description: 'Almacén eliminado de forma exitosa.' })
   @ApiResponse({ status: 404, description: 'Almacén no encontrado.' })
   remove(@Param('id', ParseUUIDPipe) id: string) {
     return this.warehousesService.remove(id);

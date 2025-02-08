@@ -31,7 +31,7 @@ export class CreateOrderDto {
   employee: string;
 
   @ApiProperty({
-    description: 'ID del transportista',
+    description: 'ID del delivery',
     type: String,
     example: 'a9b78c1d-4e4a-44bb-8e12-4fb103b42d34',
   })

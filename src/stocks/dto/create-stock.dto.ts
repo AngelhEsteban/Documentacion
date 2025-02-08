@@ -3,7 +3,7 @@ import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateStockDto {
   @ApiProperty({
-    description: 'Cantidad de stock',
+    description: 'Cantidad de stock disponible',
     type: Number,
     minimum: 0,
     example: 50,

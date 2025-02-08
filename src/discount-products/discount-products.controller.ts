@@ -25,35 +25,35 @@ export class DiscountProductsController {
   @Post()
   @ApiOperation({ summary: 'Crear una nueva relación entre producto y descuento' })
   @ApiBody({ type: CreateDiscountProductDto, description: 'Datos de la relación a crear' })
-  @ApiResponse({ status: 201, description: 'Relación creada exitosamente.' })
+  @ApiResponse({ status: 201, description: 'Relación creada de forma exitosa.' })
   @ApiResponse({ status: 400, description: 'Solicitud inválida.' })
   create(@Body() createDiscountProductDto: CreateDiscountProductDto) {
     return this.discountProductsService.create(createDiscountProductDto);
   }
 
   @Get()
-  @ApiOperation({ summary: 'Obtener todas las relaciones de productos con descuento' })
-  @ApiQuery({ type: PaginationDto, description: 'Parámetros de paginación' })
-  @ApiResponse({ status: 200, description: 'Relaciones obtenidas exitosamente.' })
+  @ApiOperation({ summary: 'Llamar todas las relaciones de productos con descuento' })
+  @ApiQuery({ type: PaginationDto, description: 'Parámetros pertenecientes a la paginación' })
+  @ApiResponse({ status: 200, description: 'Relaciones llamada de forma exitosa.' })
   @ApiResponse({ status: 400, description: 'Solicitud inválida.' })
   findAll(@Query() paginationDto: PaginationDto) {
     return this.discountProductsService.findAll(paginationDto);
   }
 
   @Get(':id')
-  @ApiOperation({ summary: 'Obtener una relación de producto con descuento por ID' })
+  @ApiOperation({ summary: 'Llamar una relación de producto con descuento por ID' })
   @ApiParam({ name: 'id', description: 'ID de la relación' })
-  @ApiResponse({ status: 200, description: 'Relación obtenida exitosamente.' })
+  @ApiResponse({ status: 200, description: 'Relación llamada de forma exitosa.' })
   @ApiResponse({ status: 404, description: 'Relación no encontrada.' })
   findOne(@Param('id', ParseUUIDPipe) id: string) {
     return this.discountProductsService.findOne(id);
   }
 
   @Patch(':id')
-  @ApiOperation({ summary: 'Actualizar una relación de producto con descuento por ID' })
-  @ApiParam({ name: 'id', description: 'ID de la relación' })
-  @ApiBody({ type: UpdateDiscountProductDto, description: 'Datos de la relación a actualizar' })
-  @ApiResponse({ status: 200, description: 'Relación actualizada exitosamente.' })
+  @ApiOperation({ summary: 'Actualizar una relación de producto por su ID' })
+  @ApiParam({ name: 'id', description: 'ID perteneciente a la relación' })
+  @ApiBody({ type: UpdateDiscountProductDto, description: 'Datos pertenecientes a la relación a actualizar' })
+  @ApiResponse({ status: 200, description: 'Relación actualizada de forma exitosa.' })
   @ApiResponse({ status: 404, description: 'Relación no encontrada.' })
   update(
     @Param('id', ParseUUIDPipe) id: string,
@@ -63,9 +63,9 @@ export class DiscountProductsController {
   }
 
   @Delete(':id')
-  @ApiOperation({ summary: 'Eliminar una relación de producto con descuento por ID' })
+  @ApiOperation({ summary: 'Eliminar una relación de producto con descuento por su ID' })
   @ApiParam({ name: 'id', description: 'ID de la relación' })
-  @ApiResponse({ status: 200, description: 'Relación eliminada exitosamente.' })
+  @ApiResponse({ status: 200, description: 'Relación eliminada de forma exitosa.' })
   @ApiResponse({ status: 404, description: 'Relación no encontrada.' })
   remove(@Param('id', ParseUUIDPipe) id: string) {
     return this.discountProductsService.remove(id);

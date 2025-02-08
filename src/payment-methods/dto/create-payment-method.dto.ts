@@ -3,7 +3,7 @@ import { ApiProperty } from '@nestjs/swagger';
 
 export class CreatePaymentMethodDto {
   @ApiProperty({
-    description: 'Nombre del método de pago',
+    description: 'Método de pago escojido',
     type: String,
     example: 'Tarjeta de Crédito',
   })

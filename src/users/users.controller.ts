@@ -22,32 +22,32 @@ export class UsersController {
 
   @Post()
   @ApiOperation({ summary: 'Crear un nuevo usuario' })
-  @ApiResponse({ status: 201, description: 'Usuario creado exitosamente.' })
+  @ApiResponse({ status: 201, description: 'Usuario creado de forma exitosa.' })
   @ApiResponse({ status: 400, description: 'Solicitud incorrecta.' })
   create(@Body() createUserDto: CreateUserDto) {
     return this.usersService.create(createUserDto);
   }
 
   @Get()
-  @ApiOperation({ summary: 'Obtener todos los usuarios' })
-  @ApiResponse({ status: 200, description: 'Lista de usuarios recuperada exitosamente.' })
+  @ApiOperation({ summary: 'Llamar todos los usuarios' })
+  @ApiResponse({ status: 200, description: 'Lista de usuarios llamada de forma exitosa.' })
   findAll(@Query() paginationDto: PaginationDto) {
     return this.usersService.findAll(paginationDto);
   }
 
   @Get(':id')
-  @ApiOperation({ summary: 'Obtener un usuario por ID' })
+  @ApiOperation({ summary: 'Llamar un usuario por su ID' })
   @ApiParam({ name: 'id', type: 'string', description: 'ID del usuario' })
-  @ApiResponse({ status: 200, description: 'Usuario recuperado exitosamente.' })
+  @ApiResponse({ status: 200, description: 'Usuario llamado de forma exitosa.' })
   @ApiResponse({ status: 404, description: 'Usuario no encontrado.' })
   findOne(@Param('id', ParseUUIDPipe) id: string) {
     return this.usersService.findOne(id);
   }
 
   @Patch(':id')
-  @ApiOperation({ summary: 'Actualizar un usuario por ID' })
+  @ApiOperation({ summary: 'Actualizar un usuario por su ID' })
   @ApiParam({ name: 'id', type: 'string', description: 'ID del usuario' })
-  @ApiResponse({ status: 200, description: 'Usuario actualizado exitosamente.' })
+  @ApiResponse({ status: 200, description: 'Usuario actualizado de forma exitosa.' })
   @ApiResponse({ status: 404, description: 'Usuario no encontrado.' })
   update(
     @Param('id', ParseUUIDPipe) id: string,
@@ -57,9 +57,9 @@ export class UsersController {
   }
 
   @Delete(':id')
-  @ApiOperation({ summary: 'Eliminar un usuario por ID' })
+  @ApiOperation({ summary: 'Eliminar un usuario por su ID' })
   @ApiParam({ name: 'id', type: 'string', description: 'ID del usuario' })
-  @ApiResponse({ status: 200, description: 'Usuario eliminado exitosamente.' })
+  @ApiResponse({ status: 200, description: 'Usuario eliminado de forma exitosa.' })
   @ApiResponse({ status: 404, description: 'Usuario no encontrado.' })
   remove(@Param('id', ParseUUIDPipe) id: string) {
     return this.usersService.remove(id);

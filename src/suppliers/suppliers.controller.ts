@@ -22,32 +22,32 @@ export class SuppliersController {
 
   @Post()
   @ApiOperation({ summary: 'Crear un nuevo proveedor' })
-  @ApiResponse({ status: 201, description: 'Proveedor creado exitosamente.' })
+  @ApiResponse({ status: 201, description: 'Proveedor creado de forma exitosa.' })
   @ApiResponse({ status: 400, description: 'Solicitud incorrecta.' })
   create(@Body() createSupplierDto: CreateSupplierDto) {
     return this.suppliersService.create(createSupplierDto);
   }
 
   @Get()
-  @ApiOperation({ summary: 'Obtener todos los proveedores' })
-  @ApiResponse({ status: 200, description: 'Lista de proveedores recuperada exitosamente.' })
+  @ApiOperation({ summary: 'Llamar a todos los proveedores' })
+  @ApiResponse({ status: 200, description: 'Lista de proveedores llamada de forma exitosa.' })
   findAll(@Query() paginationDto: PaginationDto) {
     return this.suppliersService.findAll(paginationDto);
   }
 
   @Get(':id')
-  @ApiOperation({ summary: 'Obtener un proveedor por ID' })
+  @ApiOperation({ summary: 'Llamar a un proveedor por su ID' })
   @ApiParam({ name: 'id', type: 'string', description: 'ID del proveedor' })
-  @ApiResponse({ status: 200, description: 'Proveedor recuperado exitosamente.' })
+  @ApiResponse({ status: 200, description: 'Proveedor llamado de forma exitosa.' })
   @ApiResponse({ status: 404, description: 'Proveedor no encontrado.' })
   findOne(@Param('id', ParseUUIDPipe) id: string) {
     return this.suppliersService.findOne(id);
   }
 
   @Patch(':id')
-  @ApiOperation({ summary: 'Actualizar un proveedor por ID' })
+  @ApiOperation({ summary: 'Actualizar un proveedor por su ID' })
   @ApiParam({ name: 'id', type: 'string', description: 'ID del proveedor' })
-  @ApiResponse({ status: 200, description: 'Proveedor actualizado exitosamente.' })
+  @ApiResponse({ status: 200, description: 'Proveedor actualizado de forma exitosa.' })
   @ApiResponse({ status: 404, description: 'Proveedor no encontrado.' })
   update(
     @Param('id', ParseUUIDPipe) id: string,
@@ -57,9 +57,9 @@ export class SuppliersController {
   }
 
   @Delete(':id')
-  @ApiOperation({ summary: 'Eliminar un proveedor por ID' })
+  @ApiOperation({ summary: 'Eliminar un proveedor por su ID' })
   @ApiParam({ name: 'id', type: 'string', description: 'ID del proveedor' })
-  @ApiResponse({ status: 200, description: 'Proveedor eliminado exitosamente.' })
+  @ApiResponse({ status: 200, description: 'Proveedor eliminado de forma exitosa.' })
   @ApiResponse({ status: 404, description: 'Proveedor no encontrado.' })
   remove(@Param('id', ParseUUIDPipe) id: string) {
     return this.suppliersService.remove(id);

@@ -12,7 +12,7 @@ export class CreateEmployeeDto {
   name: string;
 
   @ApiProperty({
-    description: 'Fecha de nacimiento del empleado',
+    description: 'Fecha de nacimiento perteneciente al empleado',
     type: String,
     format: 'date-time',
     example: '1990-01-01T00:00:00.000Z',
@@ -22,7 +22,7 @@ export class CreateEmployeeDto {
   birthDate: Date;
 
   @ApiProperty({
-    description: 'Ciudad del empleado',
+    description: 'Ciudad de residencia empleado',
     type: String,
     example: 'San Antonio',
   })
@@ -31,7 +31,7 @@ export class CreateEmployeeDto {
   city: string;
 
   @ApiProperty({
-    description: 'Teléfono del empleado',
+    description: 'Teléfono perteneciente al empleado',
     type: String,
     example: '123-456-7890',
   })
@@ -49,7 +49,7 @@ export class CreateEmployeeDto {
   email: string;
 
   @ApiProperty({
-    description: 'Nota adicional sobre el empleado',
+    description: 'dato adicional sobre el empleado',
     type: String,
     required: false,
     example: 'Nota opcional',

@@ -3,7 +3,7 @@ import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateWarehouseDto {
   @ApiProperty({
-    description: 'Descripción del almacén',
+    description: 'Descripción asociada al almacén',
     type: String,
     example: 'Almacén principal',
     required: false,

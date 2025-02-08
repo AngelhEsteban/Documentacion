@@ -21,38 +21,38 @@ export class DeliveryOrdersController {
   constructor(private readonly deliveryOrdersService: DeliveryOrdersService) {}
 
   @Post()
-  @ApiOperation({ summary: 'Crear una nueva orden de entrega' })
+  @ApiOperation({ summary: 'Crear una nueva orden para entrega' })
   @ApiBody({ type: CreateDeliveryOrderDto, description: 'Datos de la orden de entrega a crear' })
-  @ApiResponse({ status: 201, description: 'Orden de entrega creada exitosamente.' })
+  @ApiResponse({ status: 201, description: 'Orden para entrega creada de forma exitosa.' })
   @ApiResponse({ status: 400, description: 'Solicitud inválida.' })
   create(@Body() createDeliveryOrderDto: CreateDeliveryOrderDto) {
     return this.deliveryOrdersService.create(createDeliveryOrderDto);
   }
 
   @Get()
-  @ApiOperation({ summary: 'Obtener todas las órdenes de entrega' })
+  @ApiOperation({ summary: 'llamar todas las órdenes para entrega' })
   @ApiQuery({ type: PaginationDto, description: 'Parámetros de paginación' })
-  @ApiResponse({ status: 200, description: 'Órdenes de entrega obtenidas exitosamente.' })
+  @ApiResponse({ status: 200, description: 'Órdenes para entregas obtenidas de forma exitosa.' })
   @ApiResponse({ status: 400, description: 'Solicitud inválida.' })
   findAll(@Query() paginationDto: PaginationDto) {
     return this.deliveryOrdersService.findAll(paginationDto);
   }
 
   @Get(':id')
-  @ApiOperation({ summary: 'Obtener una orden de entrega por ID' })
-  @ApiParam({ name: 'id', description: 'ID de la orden de entrega' })
-  @ApiResponse({ status: 200, description: 'Orden de entrega obtenida exitosamente.' })
-  @ApiResponse({ status: 404, description: 'Orden de entrega no encontrada.' })
+  @ApiOperation({ summary: 'llamar una orden para entrega por ID' })
+  @ApiParam({ name: 'id', description: 'ID de la orden para entrega' })
+  @ApiResponse({ status: 200, description: 'Orden para entrega obtenida de forma exitosa.' })
+  @ApiResponse({ status: 404, description: 'Orden para entrega no encontrada.' })
   findOne(@Param('id', ParseUUIDPipe) id: string) {
     return this.deliveryOrdersService.findOne(id);
   }
 
   @Patch(':id')
-  @ApiOperation({ summary: 'Actualizar una orden de entrega por ID' })
-  @ApiParam({ name: 'id', description: 'ID de la orden de entrega' })
-  @ApiBody({ type: UpdateDeliveryOrderDto, description: 'Datos de la orden de entrega a actualizar' })
-  @ApiResponse({ status: 200, description: 'Orden de entrega actualizada exitosamente.' })
-  @ApiResponse({ status: 404, description: 'Orden de entrega no encontrada.' })
+  @ApiOperation({ summary: 'Actualizar una orden para entrega por ID' })
+  @ApiParam({ name: 'id', description: 'ID de la orden para entrega' })
+  @ApiBody({ type: UpdateDeliveryOrderDto, description: 'Datos de la orden para entrega a actualizar' })
+  @ApiResponse({ status: 200, description: 'Orden para entrega actualizada de forma exitosa.' })
+  @ApiResponse({ status: 404, description: 'Orden para entrega no encontrada.' })
   update(
     @Param('id', ParseUUIDPipe) id: string,
     @Body() updateDeliveryOrderDto: UpdateDeliveryOrderDto,
@@ -61,10 +61,10 @@ export class DeliveryOrdersController {
   }
 
   @Delete(':id')
-  @ApiOperation({ summary: 'Eliminar una orden de entrega por ID' })
+  @ApiOperation({ summary: 'Eliminar una orden para entrega por ID' })
   @ApiParam({ name: 'id', description: 'ID de la orden de entrega' })
-  @ApiResponse({ status: 200, description: 'Orden de entrega eliminada exitosamente.' })
-  @ApiResponse({ status: 404, description: 'Orden de entrega no encontrada.' })
+  @ApiResponse({ status: 200, description: 'Orden para entrega eliminada de forma exitosa.' })
+  @ApiResponse({ status: 404, description: 'Orden para entrega no encontrada.' })
   remove(@Param('id', ParseUUIDPipe) id: string) {
     return this.deliveryOrdersService.remove(id);
   }

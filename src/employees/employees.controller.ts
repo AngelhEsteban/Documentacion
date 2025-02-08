@@ -22,32 +22,32 @@ export class EmployeesController {
 
   @Post()
   @ApiOperation({ summary: 'Crear un nuevo empleado' })
-  @ApiResponse({ status: 201, description: 'Empleado creado exitosamente.' })
+  @ApiResponse({ status: 201, description: 'Empleado creado de forma exitosa.' })
   @ApiResponse({ status: 400, description: 'Solicitud incorrecta.' })
   create(@Body() createEmployeeDto: CreateEmployeeDto) {
     return this.employeesService.create(createEmployeeDto);
   }
 
   @Get()
-  @ApiOperation({ summary: 'Obtener todos los empleados' })
-  @ApiResponse({ status: 200, description: 'Lista de empleados recuperada exitosamente.' })
+  @ApiOperation({ summary: 'Llamar todos los empleados' })
+  @ApiResponse({ status: 200, description: 'Lista de empleados llamada de forma exitosa.' })
   findAll(@Query() paginationDto: PaginationDto) {
     return this.employeesService.findAll(paginationDto);
   }
 
   @Get(':id')
-  @ApiOperation({ summary: 'Obtener un empleado por ID' })
+  @ApiOperation({ summary: 'Llamar un empleado por su ID' })
   @ApiParam({ name: 'id', type: 'string', description: 'ID del empleado' })
-  @ApiResponse({ status: 200, description: 'Empleado recuperado exitosamente.' })
+  @ApiResponse({ status: 200, description: 'Empleado llamado de forma exitosa.' })
   @ApiResponse({ status: 404, description: 'Empleado no encontrado.' })
   findOne(@Param('id', ParseUUIDPipe) id: string) {
     return this.employeesService.findOne(id);
   }
 
   @Patch(':id')
-  @ApiOperation({ summary: 'Actualizar un empleado por ID' })
+  @ApiOperation({ summary: 'Actualizar un empleado por su ID' })
   @ApiParam({ name: 'id', type: 'string', description: 'ID del empleado' })
-  @ApiResponse({ status: 200, description: 'Empleado actualizado exitosamente.' })
+  @ApiResponse({ status: 200, description: 'Empleado actualizado de forma exitosa.' })
   @ApiResponse({ status: 404, description: 'Empleado no encontrado.' })
   update(
     @Param('id', ParseUUIDPipe) id: string,
@@ -57,9 +57,9 @@ export class EmployeesController {
   }
 
   @Delete(':id')
-  @ApiOperation({ summary: 'Eliminar un empleado por ID' })
+  @ApiOperation({ summary: 'Eliminar un empleado por su ID' })
   @ApiParam({ name: 'id', type: 'string', description: 'ID del empleado' })
-  @ApiResponse({ status: 200, description: 'Empleado eliminado exitosamente.' })
+  @ApiResponse({ status: 200, description: 'Empleado eliminado de forma exitosa.' })
   @ApiResponse({ status: 404, description: 'Empleado no encontrado.' })
   remove(@Param('id', ParseUUIDPipe) id: string) {
     return this.employeesService.remove(id);
